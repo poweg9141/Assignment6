@@ -5,26 +5,24 @@
         
 package assignment6;
 
-import java.io.File;
-import java.io.IOException;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
+import java.util.Scanner;
+
+
 
 /**
  *
  * @author vandl4973
  */
-public class ImageLoader extends Component {
-  
+public class ImageLoader  {
+    private BufferedImage image;
+    
+  public void setImage(String location){
+        //store the image
+        Scanner in = new Scanner(location);
+        
+       // BufferedImage img = ;
+    }
    
     
 }

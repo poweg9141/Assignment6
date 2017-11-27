@@ -35,6 +35,7 @@ public class DisplayManager {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("Clicked");
+                
             }
         });
         frame.add(left);
@@ -59,6 +60,7 @@ public class DisplayManager {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("Clicked");
+                
             }
         });
         frame.add(right);
@@ -66,4 +68,5 @@ public class DisplayManager {
         frame.setVisible(true);
         
     }
+    
 }
