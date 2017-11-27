@@ -64,9 +64,13 @@ public class DisplayManager {
             }
         });
         frame.add(right);
+        
+        
 
         frame.setVisible(true);
         
     }
+    
+    
     
 }
