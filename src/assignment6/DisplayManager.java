@@ -9,9 +9,15 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.FileReader;
+import java.net.URL;
+import java.util.Scanner;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -26,7 +32,7 @@ public class DisplayManager {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLayout(null);
-        
+
         JLabel left = new JLabel("Left");
         left.setBounds(1, frame.getHeight() / 2 - 100, 100, 100);
         left.setVisible(true);
@@ -35,7 +41,7 @@ public class DisplayManager {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("Clicked");
-                
+
             }
         });
         frame.add(left);
@@ -60,17 +66,25 @@ public class DisplayManager {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("Clicked");
-                
+
             }
         });
         frame.add(right);
-        
-        
 
         frame.setVisible(true);
-        
+
     }
+   
     
-    
-    
+    public void addImage(BufferedImage img) {
+        ImageIcon background = new ImageIcon( img);
+        JLabel label = new JLabel();
+        label.setBounds(200,200 ,350 ,300 );
+        label.setIcon(background);
+
+        JFrame frame = new JFrame();
+        frame.setLayout(null);
+        frame.add(label);
+    }
+
 }
