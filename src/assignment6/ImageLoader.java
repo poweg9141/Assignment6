@@ -6,7 +6,11 @@
 package assignment6;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
+import javax.imageio.ImageIO;
+import javax.swing.JComponent;
 
 
 
@@ -14,14 +18,19 @@ import java.util.Scanner;
  *
  * @author vandl4973
  */
-public class ImageLoader  {
-    private BufferedImage image;
+public class ImageLoader extends JComponent  {
+     BufferedImage img = null;
     
-  public void setImage(String location){
-        //store the image
-        Scanner in = new Scanner(location);
+  public void loadImage(String location){
+        try{
+            img = ImageIO.read(new File(location));
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
         
-       // BufferedImage img = ;
+       repaint();
+        
+       
     }
    
     
