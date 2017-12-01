@@ -77,11 +77,11 @@ public class DisplayManager {
    
     
     public void addImage(BufferedImage img) {
-        ImageIcon background = new ImageIcon( img);
+        ImageIcon background = new ImageIcon(img);
         JLabel label = new JLabel();
         label.setBounds(200,200 ,350 ,300 );
         label.setIcon(background);
-
+        
         JFrame frame = new JFrame();
         frame.setLayout(null);
         frame.add(label);
