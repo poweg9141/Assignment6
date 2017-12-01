@@ -22,29 +22,6 @@ public class Assignment6 {
      */
       
     public static void main(String[] args) {
-        //initialize the objects
-        TextReader reader = new TextReader();
-        //calls the text file reader
-        Image image = reader.readFile("images/pics.txt");        
-        System.out.println("TESTING:  ");
-//        System.out.println(image.getLocation().getLocation());
-//        System.out.println(image.getDir());
-//        System.out.println(image.getLocation().getLeft(image).getDir());
-        String loc = image.getLocation().getLeft(image).getNextImage().getNextImage().getLocation().getLocation();
-        System.out.println(loc);
-        //call the image loader
-        //stores the returned image as a varieable
-//        BufferedImage loadedImage;
-        
-        //calls liams image loader class to return a buffered image when passed a fileName
-        //stores that buffered image as the active screen
-        
-        //while loop
-//        while(true){
-            //checks for button clicks
-            //if a button is clicked checks if player can move in that location
-            //if player can move, loads the next image            
- //       }            
-        //while loop ends        
+         
     }
 }
