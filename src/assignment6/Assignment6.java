@@ -31,10 +31,15 @@ public class Assignment6 {
         //stores that buffered image as the active screen
         BufferedImage frame = ImageLoader.loadImage(image.getName());
         System.out.println(frame);
+        //boolean to store whether the image needs to be updated
+        boolean update = true;
         //while loop
         while (true) {
             //updates the screen with an image
-            display.addImage(frame);
+            if(update){
+                display.addImage(frame);
+                update = false;
+            }
             //checks for button clicks
             //if a button is clicked checks if player can move in that location
             //if player can move, loads the next image
@@ -45,18 +50,21 @@ public class Assignment6 {
                 display.forward = false;
                 display.left = false;
                 display.right = false;
+                update = true;
             } else if (display.left) {
                 image = image.getLocation().getLeft(image);
                 frame = ImageLoader.loadImage(image.getName());
                 display.left = false;
                 display.forward = false;
                 display.right = false;
+                update = true;
             } else if (display.right) {
                 image = image.getLocation().getRight(image);
                 frame = ImageLoader.loadImage(image.getName());
                 display.right = false;
                 display.forward = false;
                 display.left = false;
+                update = true;
             }
         }
         //while loop ends        
