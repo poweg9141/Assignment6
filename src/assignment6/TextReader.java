@@ -101,12 +101,12 @@ public class TextReader {
         }
 
         //prints out the next images location and direction (test code, to be commented out)
-        for (int i = 0; i < nextImagesDir.size(); i++) {
-            System.out.println(nextImagesLoc.get(i));
-            System.out.println(nextImagesDir.get(i));
-        }
+//        for (int i = 0; i < nextImagesDir.size(); i++) {
+//            System.out.println(nextImagesLoc.get(i));
+//            System.out.println(nextImagesDir.get(i));
+//        }
         //prints out the size of the lists (test code, to be commented out)
-        System.out.println(nextImagesDir.size() + "\n" + nextImagesLoc.size());
+//        System.out.println(nextImagesDir.size() + "\n" + nextImagesLoc.size());
 
         //calls the method to connect the images to their correct next image
         arrangeNextImages(locations, images, nextImagesLoc, nextImagesDir);

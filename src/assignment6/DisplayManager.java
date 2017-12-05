@@ -4,11 +4,15 @@
  */
 package assignment6;
 
+import java.awt.BorderLayout;
+import java.awt.Canvas;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.FileReader;
 import java.net.URL;
@@ -24,14 +28,22 @@ import javax.swing.JPanel;
  * @author vandl4973
  */
 public class DisplayManager {
+    
+    public boolean left, right, forward;
+    private final int width = 900;
+    private final int height = 800;
+    private ImagePanel img;
+    private Graphics g;
+    private JFrame frame;
 
     public DisplayManager() {
-        JFrame frame = new JFrame();
-        frame.setBounds(10, 10, 900, 800);
+        frame = new JFrame();
+        frame.setSize(new Dimension(900, 800));
+        frame.setBounds(10, 10, width, height);
         frame.setTitle("Adventure Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setLayout(null);
+        frame.setLayout(new BorderLayout());
 
         JLabel left = new JLabel("Left");
         left.setBounds(1, frame.getHeight() / 2 - 100, 100, 100);
@@ -40,23 +52,24 @@ public class DisplayManager {
         left.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("Clicked");
-
+                left();
             }
         });
-        frame.add(left);
+        frame.add(left, BorderLayout.WEST);
 
-        JLabel forward = new JLabel("Forward");
+        JLabel forward = new JLabel("                                                          "
+                + "                                                                            "
+                + "          Forward");
         forward.setBounds(frame.getWidth() / 2 - 25, -40, 100, 100);
         forward.setVisible(true);
 
         forward.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("Clicked");
+                forward();
             }
         });
-        frame.add(forward);
+        frame.add(forward, BorderLayout.NORTH);
 
         JLabel right = new JLabel("Right");
         right.setBounds(frame.getWidth() - 40, frame.getHeight() / 2 - 100, 100, 100);
@@ -65,26 +78,35 @@ public class DisplayManager {
         right.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("Clicked");
-
+                right();
             }
         });
-        frame.add(right);
-
+        frame.add(right, BorderLayout.EAST);
         frame.setVisible(true);
-
+        
+        
+        img = new ImagePanel();
+        img.setPreferredSize(new Dimension(width, height));
+        img.setMinimumSize(new Dimension(width, height));
+        img.setMaximumSize(new Dimension(width, height));
+        frame.add(img, BorderLayout.CENTER);    
+        frame.pack(); 
     }
-   
     
     public void addImage(BufferedImage img) {
-        ImageIcon background = new ImageIcon(img);
-        JLabel label = new JLabel();
-        label.setBounds(200,200 ,350 ,300 );
-        label.setIcon(background);
-        
-        JFrame frame = new JFrame();
-        frame.setLayout(null);
-        frame.add(label);
+       this.img.setImage(img);
+       frame.repaint();
     }
-
+    
+    private void right(){
+        right = true;
+    }
+    
+    private void left(){
+        left = true;
+    }
+    
+    private void forward(){
+        forward = true;
+    }
 }

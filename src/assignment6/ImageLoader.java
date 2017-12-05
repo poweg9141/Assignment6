@@ -17,9 +17,30 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author vandl4973
+ * @author poweg9141
  */
-public class ImageLoader   {
+public class ImageLoader{
     
-  
+    /**
+     * returns a bufferd image when passed its fileName
+     * @param file the name of the file
+     * @return a buffered image of the image with the passed in file name
+     */
+    public static BufferedImage loadImage(String file){
+        //creates a buffered image
+        BufferedImage image;
+        try {
+            //trys to load the image with teh passed in file name to the buffered image
+            //all images must be in the images folder
+            image = ImageIO.read(new File("images/" + file));
+            //if the image is loaded returns the correct image
+            return image;            
+        } catch (IOException ex) {
+            //if there was a problem prints the stack trace and exits the program
+            ex.printStackTrace();
+            System.exit(1);
+        }
+        //returns null to avoid errors
+        return null;
+    }
 }

@@ -61,7 +61,7 @@ public class Image {
         return nextImage;
     }
 
-    public boolean isCanAdvance() {
+    public boolean isBlocked() {
         return isBlocked;
     }        
 }
