@@ -29,10 +29,11 @@ import javax.swing.JPanel;
  */
 public class DisplayManager {
     
-    public boolean left, right, forward;
+    public boolean left, right, forward, dwn;
     private final int width = 900;
     private final int height = 800;
     private ImagePanel img;
+    JLabel down;
     private Graphics g;
     private JFrame frame;
 
@@ -82,8 +83,21 @@ public class DisplayManager {
             }
         });
         frame.add(right, BorderLayout.EAST);
-        frame.setVisible(true);
         
+        down = new JLabel("                                                          "
+                + "                                                                            "
+                + "          Look Down");
+        down.setBounds(frame.getWidth() - 40, frame.getHeight() - 5, 100, 100);
+        down.setVisible(false);
+        down.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                down();
+                System.out.println("down");
+            }
+        });
+        frame.add(down, BorderLayout.SOUTH);
+        frame.setVisible(true);
         
         img = new ImagePanel();
         img.setPreferredSize(new Dimension(width, height));
@@ -108,5 +122,18 @@ public class DisplayManager {
     
     private void forward(){
         forward = true;
+    }
+    
+    private void down(){
+        System.out.println("true");
+        dwn = true;
+    }
+    
+    public void robby(){
+        down.setVisible(true);
+    }
+    
+    public void byerobby(){
+        down.setVisible(false);
     }
 }

@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
 
@@ -31,12 +32,25 @@ public class Assignment6 {
         //stores that buffered image as the active screen
         BufferedImage frame = ImageLoader.loadImage(image.getName());
         System.out.println(frame);
+        //load RobbyRotten
+        BufferedImage robby = ImageLoader.loadImage("IMG_666.jpg");
         //boolean to store whether the image needs to be updated
         boolean update = true;
+        //boolean to store if robby rotten if there
+        boolean rotten = false;
+        Random rand = new Random();
         //while loop
         while (true) {
             //updates the screen with an image
             if(update){
+                int i = rand.nextInt(30);
+                if(i == 1){
+                    display.robby();
+                    rotten = true;
+                }else{
+                    display.byerobby();
+                    rotten = false;
+                }
                 display.addImage(frame);
                 update = false;
             }
@@ -65,6 +79,11 @@ public class Assignment6 {
                 display.forward = false;
                 display.left = false;
                 update = true;
+            } else if(display.dwn && rotten){
+                System.out.println("TT " + display.dwn);
+                display.addImage(robby);
+                display.byerobby();
+                rotten = false;
             }
         }
         //while loop ends        
